@@ -38,11 +38,14 @@ class App {
                 System.out.println(cnt + "번 명언이 등록되었습니다.");
             } else if (command.equals("목록")) {
                 printQuotes();
+            } else if (command.startsWith("삭제?id=")) {
+                int id = Integer.parseInt(command.split("=")[1]);
+                deleteQuoteById(id);
             }
         }
     }
 
-    private void printQuotes() {
+    public void printQuotes() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
         for (int i = quotes.size() - 1; i >= 0; i--) { // 최신 순으로 출력
@@ -50,12 +53,25 @@ class App {
             System.out.printf("%d / %s / %s%n", quote.getId(), quote.getAuthor(), quote.getContent());
         }
     }
+
+    public void deleteQuoteById(int id) {
+        if (id == -1) return;
+
+        for (int i = 0; i < quotes.size(); i++) {
+            if (quotes.get(i).getId() == id) {
+                quotes.remove(i);
+                System.out.println(id + "번 명언이 삭제되었습니다.");
+                return;
+            }
+        }
+        System.out.println(id + "번 명언이 존재하지 않습니다.");
+    }
 }
 
 class Quote {
-    int id;
-    String author;
-    String content;
+    private int id;
+    private String author;
+    private String content;
 
     public Quote(int id, String author, String content) {
         this.id = id;
