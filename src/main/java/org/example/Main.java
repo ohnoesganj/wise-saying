@@ -16,14 +16,19 @@ class App {
         System.out.println("== 명언 앱 ==");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("명령) ");
-        if (br.readLine().equals("등록")) {
-            System.out.print("명언: ");
-            br.readLine();
-            System.out.print("작가: ");
-            br.readLine();
+        while (true) {
+            System.out.print("명령) ");
+
+            if (br.readLine().equals("등록")) {
+                System.out.print("명언: ");
+                br.readLine();
+                System.out.print("작가: ");
+                br.readLine();
+                System.out.println("1번 명언이 등록되었습니다.");
+            }
+
+            System.out.println("명령) 종료");
         }
 
-        System.out.println("명령) 종료");
     }
 }
