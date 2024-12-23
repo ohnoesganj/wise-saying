@@ -14,7 +14,7 @@ public class Main {
 }
 
 class App {
-    private List<Quote> quotes = new ArrayList<>();
+    private final List<Quote> quotes = new ArrayList<>();
 
     public void run() throws IOException {
         System.out.println("== 명언 앱 ==");
@@ -41,6 +41,9 @@ class App {
             } else if (command.startsWith("삭제?id=")) {
                 int id = Integer.parseInt(command.split("=")[1]);
                 deleteQuoteById(id);
+            } else if (command.startsWith("수정?id=")) {
+                int id = Integer.parseInt(command.split("=")[1]);
+                updateQuoteById(id, br);
             }
         }
     }
@@ -66,10 +69,31 @@ class App {
         }
         System.out.println(id + "번 명언은 존재하지 않습니다.");
     }
+
+    public void updateQuoteById(int id, BufferedReader br) throws IOException {
+        if (id == -1) return;
+
+        for (Quote quote : quotes) {
+            if (quote.getId() == id) {
+                System.out.println("명언(기존): " + quote.getContent());
+                System.out.print("명언: ");
+                String newContent = br.readLine();
+                System.out.println("작가(기존): " + quote.getAuthor());
+                System.out.print("작가: ");
+                String newAuthor = br.readLine();
+
+                quote.setContent(newContent);
+                quote.setAuthor(newAuthor);
+
+                return;
+            }
+        }
+        System.out.println(id + "번 명언은 존재하지 않습니다.");
+    }
 }
 
 class Quote {
-    private int id;
+    private final int id;
     private String author;
     private String content;
 
@@ -89,5 +113,13 @@ class Quote {
 
     public String getContent() {
         return content;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
