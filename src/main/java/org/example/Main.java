@@ -19,16 +19,20 @@ class App {
 
         while (true) {
             System.out.print("명령) ");
+            String command = br.readLine();
 
-            if (br.readLine().equals("등록")) {
+            if (command.equals("종료")) {
+                System.out.println("명언 앱을 종료합니다.");
+                break;
+            } else if (command.equals("등록")) {
                 System.out.print("명언: ");
                 br.readLine();
                 System.out.print("작가: ");
                 br.readLine();
                 cnt++;
                 System.out.println(cnt + "번 명언이 등록되었습니다.");
-            } else {
-                break;
+            } else if (command.equals("목록")) {
+
             }
         }
 
