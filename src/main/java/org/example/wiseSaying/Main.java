@@ -1,4 +1,4 @@
-package org.example;
+package org.example.wiseSaying;
 
 import org.json.simple.parser.ParseException;
 
