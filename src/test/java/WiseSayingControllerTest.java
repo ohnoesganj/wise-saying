@@ -66,7 +66,7 @@ public class WiseSayingControllerTest {
         TestUtil.clearSetOutToByteArray(outputStream);
 
         outputStream = TestUtil.setOutToByteArray();
-        wiseSayingController.printWiseSayings();
+        wiseSayingController.printWiseSayings("목록?page=1");
         TestUtil.clearSetOutToByteArray(outputStream);
 
         String output = outputStream.toString().trim();
