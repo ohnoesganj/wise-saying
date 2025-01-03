@@ -94,4 +94,16 @@ public class WiseSayingController {
             System.out.println(id + "번 명언은 존재하지 않습니다.");
         }
     }
+
+    /// 명언 검색
+    public void searchWiseSaying(String keywordType, String keyword) throws IOException {
+        System.out.println("----------------------");
+        System.out.println("검색타입 : " + keywordType);
+        System.out.println("검색어 : " + keyword);
+        System.out.println("----------------------");
+        System.out.println("번호 / 작가 / 명언");
+        System.out.println("----------------------");
+
+        wiseSayingService.printWiseSayingByKeyword(keywordType, keyword);
+    }
 }

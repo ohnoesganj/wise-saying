@@ -43,7 +43,11 @@ public class App {
             wiseSayingController.updateWiseSayingById(id, br);
         } else if (command.equals("빌드")) {
             wiseSayingController.buildWiseSaying();
-        } else {
+        } else if (command.startsWith("목록?keywordType=")) {
+            String keywordType = command.split("=")[1].split("&")[0];
+            String keyword = command.split("=")[2];
+            wiseSayingController.searchWiseSaying(keywordType, keyword);
+        }else {
             System.out.println("알 수 없는 명령입니다.");
         }
     }
