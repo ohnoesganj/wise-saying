@@ -42,7 +42,7 @@ public class App {
             int id = Integer.parseInt(command.split("=")[1]);
             wiseSayingController.updateWiseSayingById(id, br);
         } else if (command.equals("빌드")) {
-            wiseSayingController.buildDataJson();
+            wiseSayingController.buildWiseSaying();
         } else {
             System.out.println("알 수 없는 명령입니다.");
         }

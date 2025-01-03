@@ -23,7 +23,7 @@ public class WiseSayingController {
     }
 
     /// 빌드 명령어
-    public void buildDataJson() throws IOException {
+    public void buildWiseSaying() throws IOException {
         List<WiseSaying> wiseSayings = wiseSayingService.findAllWiseSayings();
 
         JSONArray jsonArray = new JSONArray();
